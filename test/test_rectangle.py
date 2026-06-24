@@ -2,28 +2,14 @@ from src.rectangle import Rectangle
 import pytest
 
 
-@pytest.mark.parametrize(
-    ("side_a", "side_b", "perimeter"),
-    [
-        pytest.param(5, 8, 26, id="perimeter_integer"),
-        pytest.param(2.6, 5.5, 16.2, id="perimeter_float")
-    ]
-)
-def test_rectangle_perimeter(side_a, side_b, perimeter):
-    r = Rectangle(side_a, side_b)
-    assert r.perimeter == perimeter, f"Perimeter of the rectangle with sides {r.side_a, r.side_b} must be {perimeter}, actual is {r.perimeter}"
+def test_rectangle_perimeter(rectangle):
+    assert rectangle.perimeter == 2 * (
+            rectangle.side_a + rectangle.side_b), f"Perimeter of the rectangle with sides {rectangle.side_a, rectangle.side_b} must be {2 * (
+            rectangle.side_a + rectangle.side_b)}, actual is {rectangle.perimeter}"
 
 
-@pytest.mark.parametrize(
-    ("side_a", "side_b", "area"),
-    [
-        pytest.param(3, 5, 15, id="area_integer"),
-        pytest.param(2.8, 3.2, 2.8 * 3.2, id="area_float")
-    ]
-)
-def test_rectangle_area(side_a, side_b, area):
-    r = Rectangle(side_a, side_b)
-    assert r.area == area, f"Area of the rectangle with sides {r.side_a, r.side_b} must be {area}, actual is {r.area}"
+def test_rectangle_area(rectangle):
+    assert rectangle.area == rectangle.side_a * rectangle.side_b, f"Area of the rectangle with sides {rectangle.side_a, rectangle.side_b} must be {rectangle.side_a * rectangle.side_b}, actual is {rectangle.area}"
 
 
 @pytest.mark.negative

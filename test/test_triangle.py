@@ -1,29 +1,17 @@
 from src.triangle import Triangle
 import pytest
+from math import sqrt
 
 
-@pytest.mark.parametrize(
-    ("side_a", "side_b", "side_c", "perimeter"),
-    [
-        pytest.param(5, 6, 7, 18, id="perimeter_integer"),
-        pytest.param(2.6, 3.33, 4.67, 10.6, id="perimeter_float")
-    ]
-)
-def test_triangle_perimeter(side_a, side_b, side_c, perimeter):
-    t = Triangle(side_a, side_b, side_c)
-    assert t.perimeter == perimeter, f"Perimeter of the triangle with sides {t.side_a, t.side_b, t.side_c} must be {perimeter}, actual is {t.perimeter}"
+def test_triangle_perimeter(triangle):
+    expected_perimeter = triangle.side_a + triangle.side_b + triangle.side_c
+    assert triangle.perimeter == expected_perimeter, f"Perimeter of the triangle with sides {triangle.side_a, triangle.side_b, triangle.side_c} must be {expected_perimeter}, actual is {triangle.perimeter}"
 
 
-@pytest.mark.parametrize(
-    ("side_a", "side_b", "side_c", "area"),
-    [
-        pytest.param(3, 4, 5, 6.0, id="area_integer"),
-        pytest.param(2.2, 3.3, 4.4, 3.5147323866832307, id="area_float")
-    ]
-)
-def test_triangle_area(side_a, side_b, side_c, area):
-    t = Triangle(side_a, side_b, side_c)
-    assert t.area == area, f"Area of the triangle with sides {t.side_a, t.side_b, t.side_c} must be {area}, actual is {t.area}"
+def test_triangle_area(triangle):
+    pp = (triangle.side_a + triangle.side_b + triangle.side_c) / 2
+    expected_area = sqrt(pp * (pp - triangle.side_a) * (pp - triangle.side_b) * (pp - triangle.side_c))
+    assert triangle.area == expected_area, f"Area of the triangle with sides {triangle.side_a, triangle.side_b, triangle.side_c} must be {expected_area}, actual is {triangle.area}"
 
 
 @pytest.mark.negative

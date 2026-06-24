@@ -1,30 +1,15 @@
 from src.circle import Circle
-from math import pi
+from math import pi, pow
 import pytest
 
 
-@pytest.mark.parametrize(
-    ("r", "perimeter"),
-    [
-        pytest.param(5, 2 * pi * 5, id="perimeter_integer_r"),
-        pytest.param(2.5, 2 * pi * 2.5, id="perimeter_float_r")
-    ]
-)
-def test_circle_perimeter(r, perimeter, start_file):
-    c = Circle(r)
-    assert c.perimeter == perimeter, f"Perimeter of the circle with radius {c.r} must be {perimeter}, actual is {c.perimeter}"
+def test_circle_perimeter(circle):
+    assert circle.perimeter == 2 * pi * circle.r, f"Perimeter of the circle with radius {circle.r} must be {2 * pi * circle.r}, actual is {circle.perimeter}"
 
 
-@pytest.mark.parametrize(
-    ("r", "area"),
-    [
-        pytest.param(5, pi * 5 ** 2, id="area_integer_r"),
-        pytest.param(2.5, pi * 2.5 ** 2, id="area_float_r")
-    ]
-)
-def test_circle_area(r, area, start_test):
-    c = Circle(r)
-    assert c.area == area, f"Area of the circle with radius {c.r} must be {area}, actual is {c.area}"
+def test_circle_area(circle):
+    assert circle.area == pi * pow(circle.r,
+                                   2), f"Area of the circle with radius {circle.r} must be {pi * pow(circle.r, 2)}, actual is {circle.area}"
 
 
 @pytest.mark.negative

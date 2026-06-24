@@ -2,28 +2,12 @@ from src.square import Square
 import pytest
 
 
-@pytest.mark.parametrize(
-    ("side_a", "perimeter"),
-    [
-        pytest.param(5, 20, id="perimeter_integer"),
-        pytest.param(2.6, 10.4, id="perimeter_float")
-    ]
-)
-def test_square_perimeter(side_a, perimeter):
-    s = Square(side_a)
-    assert s.perimeter == perimeter, f"Perimeter of the square with sides {s.side_a} must be {perimeter}, actual is {s.perimeter}"
+def test_square_perimeter(square):
+    assert square.perimeter == 4 * square.side_a, f"Perimeter of the square with sides {square.side_a} must be {4 * square.side_a}, actual is {square.perimeter}"
 
 
-@pytest.mark.parametrize(
-    ("side_a", "area"),
-    [
-        pytest.param(3, 9, id="area_integer"),
-        pytest.param(2.8, 2.8 * 2.8, id="area_float")
-    ]
-)
-def test_square_area(side_a, area):
-    s = Square(side_a)
-    assert s.area == area, f"Area of the square with sides {s.side_a} must be {area}, actual is {s.area}"
+def test_square_area(square):
+    assert square.area == square.side_a * square.side_a, f"Area of the square with sides {square.side_a} must be {square.side_a * square.side_a}, actual is {square.area}"
 
 
 @pytest.mark.negative
