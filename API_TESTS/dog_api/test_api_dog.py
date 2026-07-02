@@ -14,7 +14,7 @@ def test_dog_api_list_all_breeds(dog_service):
 def test_dog_api_single_all_breeds_image_random(dog_service):
     response = dog_service.get_breeds_image_random()
     assert response.message.startswith(
-        f"https://images.dog.ceo/breeds/"), "Image link in message must start with 'https://images.dog.ceo/breeds/'"
+        "https://images.dog.ceo/breeds/"), "Image link in message must start with 'https://images.dog.ceo/breeds/'"
     assert response.message.endswith(".jpg"), "Image file in message must be '.jpg'"
 
 

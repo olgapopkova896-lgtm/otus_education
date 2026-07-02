@@ -23,7 +23,7 @@ class BreweriesService:
         return TypeAdapter(list[Brewery]).validate_python(response)
 
     def get_random_brewery(self, random_number):
-        path = f'breweries/random'
+        path = 'breweries/random'
         response = self.http_client.get(path, params={'size': random_number})
         return TypeAdapter(list[Brewery]).validate_python(response)
 

@@ -61,4 +61,4 @@ def test_patching_resource(id_up, field, value, random_id, jsonplaceholder_servi
 
 def test_delete_resource(random_id, jsonplaceholder_service):
     response = jsonplaceholder_service.delete_resource(random_id)
-    assert response == {}, f'resource must be deleted'
+    assert response == {}, 'resource must be deleted'
