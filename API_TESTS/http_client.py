@@ -13,17 +13,17 @@ class HttpClient:
         response_json = response.json()
         return response_json
 
-    def get(self, path: str, code: int = 200, params: dict = None)-> dict[str, Any]:
+    def get(self, path: str, code: int = 200, params: dict = None) -> dict[str, Any]:
         return self.request('GET', path=path, code=code, params=params)
 
-    def post(self, path: str, headers: dict = None, body: dict = None, code: int = 201)-> dict[str, Any]:
+    def post(self, path: str, headers: dict = None, body: dict = None, code: int = 201) -> dict[str, Any]:
         return self.request('POST', path=path, headers=headers, body=body, code=code)
 
-    def put(self, path: str, headers: dict = None, body: dict = None, code: int = 200)-> dict[str, Any]:
+    def put(self, path: str, headers: dict = None, body: dict = None, code: int = 200) -> dict[str, Any]:
         return self.request('PUT', path=path, headers=headers, body=body, code=code)
 
-    def patch(self, path: str, headers: dict = None, body: dict = None, code: int = 200)-> dict[str, Any]:
+    def patch(self, path: str, headers: dict = None, body: dict = None, code: int = 200) -> dict[str, Any]:
         return self.request('PATCH', path=path, headers=headers, body=body, code=code)
 
-    def delete(self, path: str, code: int = 200)-> dict[str, Any]:
+    def delete(self, path: str, code: int = 200) -> dict[str, Any]:
         return self.request('DELETE', path=path, code=code)

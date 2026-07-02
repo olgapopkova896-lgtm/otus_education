@@ -18,4 +18,3 @@ class Brewery(BaseModel):
     website_url: str | None = None
     state: str
     street: str | None = None
-

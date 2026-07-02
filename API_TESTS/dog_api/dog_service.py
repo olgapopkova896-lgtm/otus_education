@@ -2,9 +2,8 @@ from API_TESTS.dog_api.models.breeds import DogBreedsResponse, DogSingleImageRes
 
 
 class DogService:
-    def __init__(self,http_client) -> None:
+    def __init__(self, http_client) -> None:
         self.http_client = http_client
-
 
     def get_all_breeds(self):
         path = 'breeds/list/all'
@@ -55,5 +54,3 @@ class DogService:
         path = f'breed/{breed}/{sub_breed}/images/random/{image_number}'
         response = self.http_client.get(path)
         return DogMultipleImageResponse(**response)
-
-

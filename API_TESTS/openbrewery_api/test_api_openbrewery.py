@@ -59,7 +59,8 @@ def test_random_brewery(breweries_service):
 )
 def test_search(search_value, breweries_service):
     response = breweries_service.get_search(search_value)
-    assert any(search_value.lower() in item.name.lower() for item in response), f'Response must have {search_value} in name, city or country'
+    assert any(search_value.lower() in item.name.lower() for item in
+               response), f'Response must have {search_value} in name, city or country'
 
 
 def test_search_no_result(breweries_service):

@@ -1,6 +1,7 @@
 import pytest
 from API_TESTS.jsonplaceholder_api.data.jsonplaceholder_data import post_1
 
+
 @pytest.mark.api
 def test_all_posts(jsonplaceholder_service):
     response = jsonplaceholder_service.get_posts()
@@ -8,9 +9,10 @@ def test_all_posts(jsonplaceholder_service):
 
 
 @pytest.mark.api
-def test_one_post(random_id,jsonplaceholder_service):
+def test_one_post(random_id, jsonplaceholder_service):
     response = jsonplaceholder_service.get_one_post(random_id)
     assert response.id == random_id, f'Response id must be {random_id}, actual is {response.id}'
+
 
 @pytest.mark.api
 def test_comments(random_id, jsonplaceholder_service):
